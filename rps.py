@@ -25,7 +25,7 @@ def scissors():
     buttons["scissors"].after(10, lambda: find_winner("scissors"))
 
 def find_winner(user_choice):
-    for key, value in buttons.items():
+    for value in buttons.values():
         value.configure(state=DISABLED)
 
     winner_text = "You Won!"
@@ -47,10 +47,9 @@ def find_winner(user_choice):
     display_box.after(3000, lambda: display_winner(winner_text))
 
 def display_winner(winner_text):
-
     game_text.set(winner_text)
 
-    for key, value in buttons.items():
+    for value in buttons.values():
         value.configure(bg=revert_colour)
         value.configure(state=NORMAL)
 
